@@ -12,7 +12,7 @@ let productos =
         "items": [
                 {
                 "id": "1", 
-                "title": "Apple Ipod touch silver- 35gb", 
+                "title": "apple ipod touch silver- 35gb", 
                 "price": {
                         "currency": "48.500", 
                         "amount": 3, 
@@ -26,7 +26,7 @@ let productos =
                 },
                 {
                     "id": "2", 
-                    "title": "Apple Ipod nano, flim tricapa", 
+                    "title": "apple ipod nano, flim tricapa", 
                     "price": {
                             "currency": "450", 
                             "amount": 3, 
@@ -40,7 +40,7 @@ let productos =
                 },
                 {
                     "id": "3", 
-                    "title": "iPod Touch 32 Gb Modelo A1574 Silver", 
+                    "title": "apple ipod Touch 32 Gb Modelo A1574 Silver", 
                     "price": {
                             "currency": "40.900", 
                             "amount": 3, 
@@ -62,7 +62,7 @@ let productos =
                 },
                 {
                     "id": "4", 
-                    "title": "Apple iPod Touch 4ta Generación - 32 Gb - Black", 
+                    "title": "apple ipod Touch 4ta Generación - 32 Gb - Black", 
                     "price": {
                             "currency": "4.000", 
                             "amount": 1, 
