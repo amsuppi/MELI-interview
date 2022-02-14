@@ -7,13 +7,13 @@ router.get("/",  (req, res) => {
   });
 
 router.get("/:id",  (req, res) => {
-    const placeId = req.params.id;
-    const place = jsonProductos.productos.items.find(p => {
-            return ":" + p.id === placeId;
+    const request = req.params.id;
+    const response = jsonProductos.productos.items.find(p => {
+            return ":" + p.id === request;
         
       });
     const author = jsonProductos.productos.author;
-    res.json({author, place});
+    res.status(200).json({author, response});
   });
 
 module.exports = router;
