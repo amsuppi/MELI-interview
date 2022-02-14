@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
-import SearchBar from './components/SearchBar/SearchBar';
-import ListComponents from './components/ListComponents/ListComponents';
+import React from 'react';
+import RoutesApp from './RoutesApp';
 
 const BodyRender = ()=>{
-    const [value, setValue] = useState("")
+    
     return(
         <div>
-            <SearchBar setValue={setValue}/>
-            <ListComponents value={value}/>
+            <RoutesApp />
         </div>
     )
 }
