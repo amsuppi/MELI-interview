@@ -6,13 +6,15 @@ let productos =
             },
         "categories" : [
                 "Celulares", 
-                "Electrodomesticos", 
-                "Automotores",
+                "Electronica", 
+                "Apple",
+                "Ipod",
+                "Touch"
             ],
         "items": [
                 {
                 "id": "1", 
-                "title": "apple ipod touch silver- 35gb", 
+                "title": "Apple ipod touch silver- 35gb", 
                 "price": {
                         "currency": "48.500", 
                         "amount": 3, 
@@ -26,7 +28,7 @@ let productos =
                 },
                 {
                     "id": "2", 
-                    "title": "apple ipod nano, flim tricapa", 
+                    "title": "Apple ipod nano, flim tricapa", 
                     "price": {
                             "currency": "450", 
                             "amount": 3, 
@@ -40,7 +42,7 @@ let productos =
                 },
                 {
                     "id": "3", 
-                    "title": "apple ipod Touch 32 Gb Modelo A1574 Silver", 
+                    "title": "Apple ipod Touch 32 Gb Modelo A1574 Silver", 
                     "price": {
                             "currency": "40.900", 
                             "amount": 3, 
@@ -62,7 +64,7 @@ let productos =
                 },
                 {
                     "id": "4", 
-                    "title": "apple ipod Touch 4ta Generación - 32 Gb - Black", 
+                    "title": "Apple ipod Touch 4ta Generación - 32 Gb - Black", 
                     "price": {
                             "currency": "4.000", 
                             "amount": 1, 

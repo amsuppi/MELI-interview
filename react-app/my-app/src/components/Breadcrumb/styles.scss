@@ -1,0 +1,11 @@
+@import '../../_variables/_color.scss';
+.breadcrumb{
+    display: flex;
+    margin-left: 100px;
+    p{
+        margin: 3px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: $dark-gray;
+    }
+}

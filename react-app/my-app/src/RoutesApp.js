@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { Routes, Route, Link } from "react-router-dom";
 import ListComponents from './components/ListComponents/ListComponents';
-import SearchBar from './components/SearchBar/SearchBar';
 import OnlyProduct from './components/OnlyProduct/OnlyProduct';
+import SearchBar from './components/SearchBar/SearchBar';
 
 const RoutesApp = ()=>{
-    const [value, setValue] = useState("")
     return(
     <>
-    <SearchBar setValue={setValue}/>
+    <SearchBar/>
+    
     <Routes>
         <Route path="/"/>
-        <Route path="items" element={<ListComponents value={value}/>}>
+        <Route path="items" element={<ListComponents />}>
             <Route path=":search" element={<ListComponents/>} />
         </Route>
-        <Route path="items" element={<OnlyProduct />}> 
+        <Route path="item" element={<OnlyProduct />}> 
             <Route path=":id" element={<OnlyProduct />}/> 
         </Route>
     </Routes>

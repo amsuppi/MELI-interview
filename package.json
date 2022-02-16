@@ -6,10 +6,10 @@
   "dependencies": {
     "body-parser": "^1.19.1",
     "express": "^4.17.2",
+    "isomorphic-fetch": "^3.0.0",
     "react-scripts": "^5.0.0",
     "sequelize": "^6.16.1"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"

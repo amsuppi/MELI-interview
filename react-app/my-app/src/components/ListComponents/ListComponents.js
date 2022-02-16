@@ -4,49 +4,37 @@ import { Link } from 'react-router-dom';
 import  shipping  from '../../img/ic_shipping.png';
 import './styles.scss';
 import { useSearchParams } from 'react-router-dom';
+import { useFetchApi } from '../../hooks/useFetchApi';
 
-const ListComponents = ({value})=> {
+const ListComponents = ()=> {
     const [searchParams] = useSearchParams();
-    let url = [...searchParams];
-    console.log(url); 
 
+    const currentParams = Object.fromEntries([...searchParams]);
 
-    console.log(value)
-    const [data, setData] = useState([]);
+    const string = currentParams.search.replace(/['"]+/g, '')
+    const apiString = string.charAt(0).toUpperCase() + string.slice(1);
+    const { result , categories} = useFetchApi(apiString)
 
-    useEffect(()=>{
-        const currentParams = Object.fromEntries([...searchParams]);
-        let string = currentParams.search.replace(/['"]+/g, '')
-        let apiString = string.charAt(0).toUpperCase() + string.slice(1);
-
-        const getInfo = async ()=>{
-            await fetch(`http://localhost:5000/items/search?q=${apiString}`)
-                .then(res => res.json())
-                .then(result =>{
-                    console.log(result)
-                    console.log(result)
-                    setData(result)
-                })
-        }
-        getInfo();
-    }, [searchParams])
+    console.log("categories" , categories)
+    
+    const filterComponent = result.slice(0, 4);
+    
 
     return(
-        data?.map((data, id)=>(
-            <div className="list-component">
-             <Link  key={id} to={`/items/${data.id}`}>
-            <img src={data.picture}/>
+        filterComponent?.map((data, id)=>(
+            <div key ={id} className="list-component">
+             <Link  key={id} to={`/item/${data.id}`}>
+            <img src={data.thumbnail}/>
             <div className="principal-container">
                 <div className="secondary-container">
-                    <h1>${data.price?.currency}</h1>
-                    <img src={shipping} className={data.free_shipping ? undefined : "hidden"} />
+                    <h1>${data.price}</h1>
+                    <img src={shipping} className={data.shipping.free_shipping ? undefined : "hidden"} />
                 </div>
                 <h5>{data.title}</h5>
             </div>
             <div className="city-container">
-            <h6>Mendoza</h6>
+            <h6>{data.address.state_name}</h6>
             </div>
-            
             </Link>
             </div>
         ))

@@ -1,28 +1,38 @@
 const router = require('express').Router(); 
 const jsonProductos = require("../models/productos")
+const {modelProductList, modelOnlyProduct, modelDescription} = require('../models/products')
+const {getSearchProducts, getOnlyProduct, getDesriptionProduct} = require('./fetchApi')
 
-
-router.get("/",  (req, res) => {
-    res.status(200).json(jsonProductos);
-  });
-
-  router.get("/search",  (req, res) => {
+router.get("/search",  (req, res) => {
     const query = req.query.q;
+    let setSearchProducts = getSearchProducts(query);
 
-    const response = jsonProductos.productos.items.filter(item=>item.title.toLocaleLowerCase().includes(query.toLocaleLowerCase()))
-
-    res.status(200).json(response)
-  });
+    setSearchProducts.then(prods =>{
+      let modelProdcut = modelProductList(prods)
+      res.status(200).json(modelProdcut)
+    })
+});
 
 
 router.get("/:id",  (req, res) => {
     const request = req.params.id;
-    const response = jsonProductos.productos.items.find(p => {
-            return ":" + p.id === request;
-        
-      });
-    const author = jsonProductos.productos.author;
-    res.status(200).json({author, response});
+    let setOnlyProduct = getOnlyProduct(request)
+
+    setOnlyProduct.then(prod =>{
+      let modelOnliProduct = modelOnlyProduct(prod)
+      res.status(200).json(modelOnliProduct);
+    })
+    
+  });
+
+router.get("/:id/description",  (req, res) => {
+    const request = req.params.id;
+    let setDesriptionProduct = getDesriptionProduct(request)
+
+    setDesriptionProduct.then(result => {
+      let modelDescriptions = modelDescription(result)
+      res.status(200).json( modelDescriptions );
+    })
   });
 
 module.exports = router;
