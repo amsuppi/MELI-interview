@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import './styles.scss';
 
-const UnicProduct = ()=>{
+const OnlyProduct = ()=>{
     const [data, setData] = useState([]);
 
     useEffect(()=>{
@@ -16,23 +17,27 @@ const UnicProduct = ()=>{
     }, [])
     return(
             // <div>{data.id}</div>
-            <div>
+            <div className="only-product">
+                <div className="info-container">
                 <img src={data.picture}/>
-                <div>
-                    <div>
-                        <h5>{data.condition} -</h5>
+                <div className="principal-container">
+                    <div className="secondary-container">
+                        <h5>{data.condition} - </h5>
                         <h5>{data.sold_quantity} vendidos</h5>
                     </div>
                     <h2>{data.title}</h2>
-                    <h1>$ {data.price.currency}</h1>
+                    <h1>$ {data.price?.currency}</h1>
                     <button>Comprar</button>
                 </div>
-                <h1>Descripción del producto</h1>
+                </div>
+                <div>
+                <h4>Descripción del producto</h4>
                 <p>{data.description}</p>
+                </div>
             </div>
             
         
     )
 }
 
-export default UnicProduct;
+export default OnlyProduct;

@@ -7,12 +7,11 @@ router.get("/",  (req, res) => {
   });
 
   router.get("/search",  (req, res) => {
-    const q = req.query;
-    const a = jsonProductos.productos.items[0].title.indexOf(q)
-    const response = jsonProductos.productos.items.filter(p => { 
-        return p.title.indexOf(q) === -1;
-      });
-    res.json(response)
+    const query = req.query.q;
+
+    const response = jsonProductos.productos.items.filter(item=>item.title.toLocaleLowerCase().includes(query.toLocaleLowerCase()))
+
+    res.status(200).json(response)
   });
 
 

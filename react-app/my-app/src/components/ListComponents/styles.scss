@@ -1,0 +1,67 @@
+@import '../../_variables/_color.scss';
+@import '../../_variables/size.scss';
+.list-component{
+    padding-right: 16px;
+    color: $dark-gray;
+    padding: 16px;
+    background-color: $white;
+    margin-left: 100px;
+    margin-right: 100px;
+    a{
+        display: flex;
+        text-decoration: none;
+
+        &:visited{
+            color: $dark-gray;
+        }
+        img{
+            overflow: hidden;
+            width: 180px;
+            height: 180px;
+            margin-right: 16px;
+        }
+        .principal-container{
+            display: flex;
+            flex-direction: column;
+            flex-grow: 6;
+            margin-top: 16px;
+            h1{
+                color: $dark-gray;
+                font-weight: $size-weight;
+            }
+
+            .secondary-container{
+                display: flex;
+                align-items: center;
+                padding: 0 auto;
+                img{
+                    border: none;
+                    width: 25px;
+                    height: 25px;
+                }
+            }
+
+            h5{
+                align-items: flex-start;
+                font-weight: $size-weight;
+                color: $dark-gray;
+                margin-top: 0px;
+            }
+        }
+       .city-container{
+           display: flex;
+           flex-grow: 3;
+           justify-content: start;
+            h6{
+            text-align: left;
+            font-weight: $size-weight;
+            color: $dark-gray;
+            }
+       } 
+    }
+
+}
+
+.hidden{
+    display: none;
+}

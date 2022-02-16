@@ -1,5 +1,8 @@
 
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import  shipping  from '../../img/ic_shipping.png';
+import './styles.scss';
 
 const ListComponents = ({value})=> {
     console.log(value)
@@ -19,24 +22,23 @@ const ListComponents = ({value})=> {
         getInfo();
     }, [value])
 
-    function setProductHandler(id) {
-        console.log("id" + id)
-        
-    }
-
     return(
         data?.map((data, id)=>(
-            <div key={id}
-                 onClick={() => setProductHandler(data.id)}>
+            <div className="list-component">
+             <Link  key={id} to={`/items/${data.id}`}>
             <img src={data.picture}/>
-            <div>
-                <div>
-                    <h2>${data.price.currency}</h2>
-                    <img />
+            <div className="principal-container">
+                <div className="secondary-container">
+                    <h1>${data.price?.currency}</h1>
+                    <img src={shipping} className={data.free_shipping ? undefined : "hidden"} />
                 </div>
                 <h5>{data.title}</h5>
             </div>
+            <div className="city-container">
             <h6>Mendoza</h6>
+            </div>
+            
+            </Link>
             </div>
         ))
        

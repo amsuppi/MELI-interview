@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import logo from '../../img/Logo_ML.png'
 import search from '../../img/ic_Search.png'
+import ListComponents from '../ListComponents/ListComponents';
+import { Link } from "react-router-dom";
+import './styles.scss';
 
 const SearchBar = ({setValue})=>{
     const [result, setResult] = useState('')
@@ -16,6 +19,7 @@ const SearchBar = ({setValue})=>{
 
     function setResultHandler(e) {
         setResult(e.target.value)
+
     }
     return(
         <header>
@@ -24,8 +28,9 @@ const SearchBar = ({setValue})=>{
             <input type="search" 
                 placeholder="Nunca dejes de buscar"
                 value={result}
+                className="search"
                 onChange={setResultHandler}/>
-           <input type="image" src={search}/>
+           <Link to={`items/search/${result}`} ><input type="image" src={search}/></Link>
             </form>
         </header>
     )
