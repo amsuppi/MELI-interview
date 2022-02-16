@@ -3,24 +3,33 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import  shipping  from '../../img/ic_shipping.png';
 import './styles.scss';
+import { useSearchParams } from 'react-router-dom';
 
 const ListComponents = ({value})=> {
+    const [searchParams] = useSearchParams();
+    let url = [...searchParams];
+    console.log(url); 
+
+
     console.log(value)
     const [data, setData] = useState([]);
 
     useEffect(()=>{
+        const currentParams = Object.fromEntries([...searchParams]);
+        let string = currentParams.search.replace(/['"]+/g, '')
+        let apiString = string.charAt(0).toUpperCase() + string.slice(1);
+
         const getInfo = async ()=>{
-            await fetch("http://localhost:5000/items/")
+            await fetch(`http://localhost:5000/items/search?q=${apiString}`)
                 .then(res => res.json())
                 .then(result =>{
                     console.log(result)
-                    let item = result.productos.items
-                    console.log(item)
-                    setData(item)
+                    console.log(result)
+                    setData(result)
                 })
         }
         getInfo();
-    }, [value])
+    }, [searchParams])
 
     return(
         data?.map((data, id)=>(

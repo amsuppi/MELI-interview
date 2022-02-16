@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../../img/Logo_ML.png'
 import search from '../../img/ic_Search.png'
-import ListComponents from '../ListComponents/ListComponents';
 import { Link } from "react-router-dom";
 import './styles.scss';
 
@@ -24,13 +23,15 @@ const SearchBar = ({setValue})=>{
     return(
         <header>
             <img src={logo} alt="Mercado Libre"/>
-            <form className="search-form" onSubmit={ SendInfoHandler }>
+            <form 
+                className="search-form" 
+                onSubmit={ SendInfoHandler }>
             <input type="search" 
                 placeholder="Nunca dejes de buscar"
                 value={result}
                 className="search"
                 onChange={setResultHandler}/>
-           <Link to={`items/search/${result}`} ><input type="image" src={search}/></Link>
+            <Link to={`items?search="${result}"`}><input type="image" src={search}/></Link>
             </form>
         </header>
     )

@@ -11,7 +11,7 @@ const RoutesApp = ()=>{
     <SearchBar setValue={setValue}/>
     <Routes>
         <Route path="/"/>
-        <Route path="items/search" element={<ListComponents value={value}/>}>
+        <Route path="items" element={<ListComponents value={value}/>}>
             <Route path=":search" element={<ListComponents/>} />
         </Route>
         <Route path="items" element={<OnlyProduct />}> 
