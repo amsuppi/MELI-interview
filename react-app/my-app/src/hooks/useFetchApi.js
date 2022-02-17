@@ -8,7 +8,7 @@ export const useFetchApi = (apiString) => {
 
     useEffect(()=>{
         const getInfo = async ()=> {
-            await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${apiString}`)
+            await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=:${apiString}`)
             .then(res => res.json())
             .then(result =>{
                 setResult(result.results)

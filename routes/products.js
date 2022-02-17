@@ -16,8 +16,6 @@ router.get("/search",  (req, res) => {
          modelProdcut =  modelProductList(prods , result)
          res.status(200).json(modelProdcut)
       })
-
-      
       
     })
 });

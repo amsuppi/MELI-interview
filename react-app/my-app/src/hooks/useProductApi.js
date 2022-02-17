@@ -5,7 +5,7 @@ export const useProductApi = (id) => {
 
     useEffect(()=>{
         const getInfo = async ()=> {
-            await fetch(`http://localhost:5000/items${id}`)
+            await fetch(`http://localhost:5000/items/${id}`)
             .then(res => res.json())
             .then(result =>{
                 setData(result)

@@ -7,17 +7,15 @@ const OnlyProduct = ()=>{
     const [description, setDescription] = useState([])
     const { id }  = useParams();
     const result = useProductApi(id)
-    const data = result.data
-    console.log(console)
+    const data = result
 
     useEffect(()=>{
         const getInfo = async ()=> {
-            await fetch(`https://api.mercadolibre.com/items/${id}/description`)
+            await fetch(`http://localhost:5000/items/${id}/description`)
             .then(res => res.json())
             .then(result =>{
-                console.log(result)
-                console.log("result", result.plain_text)
-                setDescription(result.plain_text)
+                console.log(result.descriprion)
+                setDescription(result.descriprion)
             })
         }
         getInfo()
@@ -25,14 +23,14 @@ const OnlyProduct = ()=>{
     return(
             <div className="only-product">
                 <div className="info-container">
-                <img src={data.secure_thumbnail}/>
+                <img src={data.data.picture}/>
                 <div className="principal-container">
                     <div className="secondary-container">
-                        <h5>{data.condition} - </h5>
-                        <h5>{data.sold_quantity} vendidos</h5>
+                        <h5>{data.data.condition} - </h5>
+                        <h5>{data.data.sold_quantity} vendidos</h5>
                     </div>
-                    <h2>{data.title}</h2>
-                    <h1>$ {data.price}</h1>
+                    <h2>{data.data.title}</h2>
+                    <h1>$ {data.data.price?.amount}</h1>
                     <button>Comprar</button>
                 </div>
                 </div>
