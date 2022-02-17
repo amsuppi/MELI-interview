@@ -27,7 +27,7 @@
             margin-top: 16px;
             h1{
                 color: $dark-gray;
-                font-weight: $size-weight;
+                font-weight: $regula-weight;
             }
 
             .secondary-container{
@@ -36,26 +36,28 @@
                 padding: 0 auto;
                 img{
                     border: none;
-                    width: 25px;
-                    height: 25px;
+                    width: 15px;
+                    height: 15px;
+                    margin-left: 5px;
                 }
             }
 
             h5{
                 align-items: flex-start;
-                font-weight: $size-weight;
+                font-weight: $regula-weight;
                 color: $dark-gray;
                 margin-top: 0px;
             }
         }
        .city-container{
            display: flex;
-           flex-grow: 3;
+           width: 200px;
            justify-content: start;
             h6{
             text-align: left;
-            font-weight: $size-weight;
+            font-weight: $regula-weight;
             color: $dark-gray;
+            text-align: start;
             }
        } 
     }
@@ -64,4 +66,22 @@
 
 .hidden{
     display: none;
+}
+
+
+@media (max-width: 680px) {
+    .list-component{
+    margin-left: 50px;
+    margin-right: 50px;
+    a{
+        .city-container{
+            width: 100px;
+            justify-content: end;
+            h6{
+                text-align: end;
+            }
+        }
+    }
+    
+    }
 }

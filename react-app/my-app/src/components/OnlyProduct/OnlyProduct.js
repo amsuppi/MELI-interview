@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './styles.scss';
+import { formatNumber } from '../../helpers/formatNumber';
 
 const OnlyProduct = ({result, id})=>{
     console.log(result, "y" , id)
@@ -28,7 +29,7 @@ const OnlyProduct = ({result, id})=>{
                         <h5>{result.sold_quantity} vendidos</h5>
                     </div>
                     <h2>{result.title}</h2>
-                    <h1>$ {result.price?.amount}</h1>
+                    <h1>$ {formatNumber(result.price?.amount)}</h1>
                     <button>Comprar</button>
                 </div>
                 </div>

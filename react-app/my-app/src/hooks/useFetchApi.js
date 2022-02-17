@@ -8,7 +8,7 @@ export const useFetchApi = (apiString) => {
 
     useEffect(()=>{
         const getInfo = async ()=> {
-            await fetch(`http://localhost:5000/items/search?q=:casa`)
+            await fetch(`http://localhost:5000/items/search?q=:${apiString}`)
             .then(res => res.json())
             .then(result => {
                 console.log("info necesaria",result)
