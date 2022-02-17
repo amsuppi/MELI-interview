@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './styles.scss';
-import { useParams } from "react-router-dom"
-import { useProductApi } from '../../hooks/useProductApi';
 
-const OnlyProduct = ()=>{
+const OnlyProduct = ({result, id})=>{
+    console.log(result, "y" , id)
     const [description, setDescription] = useState([])
-    const { id }  = useParams();
-    const result = useProductApi(id)
-    const data = result
+    
 
     useEffect(()=>{
         const getInfo = async ()=> {
@@ -20,17 +17,18 @@ const OnlyProduct = ()=>{
         }
         getInfo()
     }, [id])
+
     return(
             <div className="only-product">
                 <div className="info-container">
-                <img src={data.data.picture}/>
+                <img src={result.picture}/>
                 <div className="principal-container">
                     <div className="secondary-container">
-                        <h5>{data.data.condition} - </h5>
-                        <h5>{data.data.sold_quantity} vendidos</h5>
+                        <h5>{result.condition} - </h5>
+                        <h5>{result.sold_quantity} vendidos</h5>
                     </div>
-                    <h2>{data.data.title}</h2>
-                    <h1>$ {data.data.price?.amount}</h1>
+                    <h2>{result.title}</h2>
+                    <h1>$ {result.price?.amount}</h1>
                     <button>Comprar</button>
                 </div>
                 </div>
@@ -38,7 +36,7 @@ const OnlyProduct = ()=>{
                 <h4>Descripción del producto</h4>
                 <p>{description}</p>
                 </div>
-            </div>
+            </div> 
             
         
     )

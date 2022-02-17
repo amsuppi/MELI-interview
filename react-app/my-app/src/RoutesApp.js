@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Routes, Route, Link } from "react-router-dom";
-import ListComponents from './components/ListComponents/ListComponents';
-import OnlyProduct from './components/OnlyProduct/OnlyProduct';
 import SearchBar from './components/SearchBar/SearchBar';
 import ScreenListComponents from './ScreenListComponents';
+import ScreenOnlyProduct from './ScreenOnlyProduct';
 
 const RoutesApp = ()=>{
     return(
@@ -15,8 +14,8 @@ const RoutesApp = ()=>{
         <Route path="items" element={<ScreenListComponents />}>
             <Route path=":search" element={<ScreenListComponents/>} />
         </Route>
-        <Route path="item" element={<OnlyProduct />}> 
-            <Route path=":id" element={<OnlyProduct />}/> 
+        <Route path="item" element={<ScreenOnlyProduct />}> 
+            <Route path=":id" element={<ScreenOnlyProduct />}/> 
         </Route>
     </Routes>
     </>
