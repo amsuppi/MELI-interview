@@ -1,0 +1,21 @@
+@import '../../_variables/_color.scss';
+.breadcrumb{
+    display: flex;
+    margin-left: 100px;
+    margin-right: 100px;
+    p{
+        margin: 3px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: $dark-gray;
+        border-right: 1px solid $dark-gray;
+        padding-right: 5px;
+    }
+}
+
+@media (max-width: 680px) {
+    .breadcrumb{
+    margin-left: 50px;
+    margin-right: 50px;
+    }
+}

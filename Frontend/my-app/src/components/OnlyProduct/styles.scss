@@ -1,0 +1,98 @@
+@import '../../_variables/_color.scss';
+@import '../../_variables/size.scss';
+
+.only-product{
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color: $white;
+    padding: 32px;
+    img{
+        width: 680px;
+        margin-right: 64px;
+    }
+    .info-container{
+        display: flex;
+
+        .principal-container{
+            display: flex;
+            flex-direction: column;
+            margin: 16px 32px;
+
+            .secondary-container{
+                display: flex;
+
+                h5{
+                    font-weight: $regula-weight;
+                    color: $dark-gray;
+                    margin: 0px;
+                }
+            }
+
+            h2{
+                color: $dark-black;
+                margin: 32px 0px;
+                font-weight: $bold-weight;
+            }
+            h1{
+                font-weight: $regula-weight;
+                color: $dark-black;
+                margin: 0px 0px 32px 0px;
+            }
+
+            button{
+                margin-right: 32px;
+                height: 35px;
+                border: 0px;
+                border-radius: 4px;
+                background-color: $dark-blue;
+                color: $white;
+            }
+        }
+    }
+
+    h4{
+        font-weight: $regula-weight;
+        color: $dark-gray;
+        font-size: 28px;
+        margin: 32x;
+    }
+    p{
+        width: 580px;
+        color: $regular-gray;
+    }
+
+}
+@media (max-width: 880px) {
+    .only-product{
+        margin-left: 50px;
+        margin-right: 50px;
+        .info-container{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+}
+@media (max-width: 680px) {
+    .only-product{
+    margin-left: 50px;
+    margin-right: 50px;
+        img{
+            width: 380px;
+            margin-right: auto; 
+        }
+        .info-container{
+            display: flex;
+            flex-direction: column;
+        }
+        p{
+            width: 380px;
+            color: $regular-gray;
+        }
+    }
+}
+
+
+

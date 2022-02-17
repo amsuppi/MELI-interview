@@ -1,0 +1,50 @@
+@import '../../_variables/_color.scss';
+
+header{
+    background-color: $yellow-primary;
+    display: flex;
+    justify-content: left;
+    padding: 10px 100px ;
+    img{
+        margin-right: 5px;
+        width: 50px;
+    }
+    form{
+        display: flex;
+        flex-grow: 4;
+
+        .search {
+            flex-grow: 9;
+            font-size: 18px;
+            color: $dark-gray;
+            border-radius: 5px 0px 0px 5px;
+            border-color: transparent;
+            margin-left: 32px;
+            &::placeholder{
+                color: $dark-gray
+            }
+            &:focus-visible{
+                outline: none;
+            }
+        }
+
+        a{  
+            display: flex;
+            width: 35px;
+            height: 35px;
+            background-color: $light-gray;
+            border-radius: 0px 5px 5px 0px;
+            input{
+                width: 15px;
+                margin: auto;
+            }
+        }
+    }
+    
+}
+
+@media (max-width: 680px) {
+    header{
+        padding: 10px 50px ;
+    }
+}

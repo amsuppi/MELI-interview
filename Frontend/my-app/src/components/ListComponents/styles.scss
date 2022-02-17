@@ -1,0 +1,111 @@
+@import '../../_variables/_color.scss';
+@import '../../_variables/size.scss';
+.loading{
+        margin: auto;
+        margin-top: 250px;
+        border: 10px solid #f3f3f3f1;
+        border-radius: 50%;
+        border-top: 10px solid #3498db;
+        width: 50px;
+        height: 50px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+      }
+      
+      /* Safari */
+      @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+
+.list-component{
+    padding-right: 16px;
+    color: $dark-gray;
+    padding: 16px;
+    background-color: $white;
+    margin-left: 100px;
+    margin-right: 100px;
+    a{
+        display: flex;
+        text-decoration: none;
+
+        &:visited{
+            color: $dark-gray;
+        }
+        img{
+            overflow: hidden;
+            width: 180px;
+            height: 180px;
+            margin-right: 16px;
+        }
+        .principal-container{
+            display: flex;
+            flex-direction: column;
+            flex-grow: 6;
+            margin-top: 16px;
+            h1{
+                color: $dark-gray;
+                font-weight: $regula-weight;
+            }
+
+            .secondary-container{
+                display: flex;
+                align-items: center;
+                padding: 0 auto;
+                img{
+                    border: none;
+                    width: 15px;
+                    height: 15px;
+                    margin-left: 5px;
+                }
+            }
+
+            h5{
+                align-items: flex-start;
+                font-weight: $regula-weight;
+                color: $dark-gray;
+                margin-top: 0px;
+            }
+        }
+       .city-container{
+           display: flex;
+           width: 200px;
+           justify-content: start;
+            h6{
+            text-align: left;
+            font-weight: $regula-weight;
+            color: $dark-gray;
+            text-align: start;
+            }
+       } 
+    }
+
+}
+
+.hidden{
+    display: none;
+}
+
+
+@media (max-width: 680px) {
+    .list-component{
+    margin-left: 50px;
+    margin-right: 50px;
+    a{
+        .city-container{
+            width: 100px;
+            justify-content: end;
+            h6{
+                text-align: end;
+            }
+        }
+    }
+    
+    }
+}
