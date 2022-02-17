@@ -8,15 +8,16 @@ export const useFetchApi = (apiString) => {
 
     useEffect(()=>{
         const getInfo = async ()=> {
-            await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=:${apiString}`)
+            await fetch(`http://localhost:5000/items/search?q=:casa`)
             .then(res => res.json())
-            .then(result =>{
-                setResult(result.results)
+            .then(result => {
                 console.log("info necesaria",result)
-                setCategories(result.filters[0].values[0].name)
+                setResult(result.items)
+                setCategories(result.categorys)
             })
         }
         getInfo()
+
     }, [apiString])
 
     return { result , categories }
