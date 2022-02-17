@@ -9,9 +9,9 @@ router.get("/search",  (req, res) => {
     let setSearchProducts = getSearchProducts(query);
 
     setSearchProducts.then(prods =>{
-      let category = prods.results[0].category_id;
+      let category = prods.results[0]?.category_id;
       let setCategories = getCategories(category)
-      
+
       setCategories.then((result)=>{
          modelProdcut =  modelProductList(prods , result)
          res.status(200).json(modelProdcut)

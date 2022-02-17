@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './styles.scss';
 import { formatNumber } from '../../helpers/formatNumber';
 
-const OnlyProduct = ({result, id})=>{
+const OnlyProduct = ({result, id, loading})=>{
     console.log(result, "y" , id)
     const [description, setDescription] = useState([])
     
@@ -22,6 +22,8 @@ const OnlyProduct = ({result, id})=>{
     }, [id])
 
     return(
+        <>
+            {loading ? <div className="loading"></div> :
             <div className="only-product">
                 <div className="info-container">
                 <img src={result.picture}/>
@@ -40,7 +42,8 @@ const OnlyProduct = ({result, id})=>{
                 <p>{description}</p>
                 </div>
             </div> 
-            
+            }
+        </>    
         
     )
 }

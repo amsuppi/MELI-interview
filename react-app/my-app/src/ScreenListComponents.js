@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ListComponents from './components/ListComponents/ListComponents';
 import Breadcrumb from './components/Breadcrumb/Breadcrumb';
 import { useSearchParams } from 'react-router-dom';
@@ -13,12 +13,16 @@ const ScreenListComponents = () =>{
     const string = currentParams.search.replace(/['"]+/g, '')
     const apiString = string.charAt(0).toUpperCase() + string.slice(1);
 
-    const { result, categories } = useFetchApi(apiString)
+    const { result, 
+            categories, 
+            loading} = useFetchApi(apiString)
+    
+    console.log(loading)
 
     return (
         <>
         <Breadcrumb categories={categories}/>
-        <ListComponents result={result}/>
+        <ListComponents result={result} loading={loading}/>
 
         </>
     )

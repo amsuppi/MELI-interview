@@ -13,6 +13,7 @@ const SearchBar = ({setValue})=>{
         if(result.length > 0) {
             setValue(result)
         }
+
        
     }
 

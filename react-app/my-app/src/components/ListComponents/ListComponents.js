@@ -5,12 +5,12 @@ import  shipping  from '../../img/ic_shipping.png';
 import './styles.scss';
 import { formatNumber } from '../../helpers/formatNumber';
 
-const ListComponents = ({result})=> {
-    console.log(result)
-    
-
+const ListComponents = ({result, loading})=> {
+    console.log(loading)
     return(
-        result.map((data, id)=>(
+        <>
+        {loading && <div className="loading"></div>}
+        {result.map((data, id)=>(
             <div key ={id} className="list-component">
              <Link  key={id} to={`/item/${data.id}`}>
             <img src={data.picture}/>
@@ -26,8 +26,9 @@ const ListComponents = ({result})=> {
             </div>
             </Link>
             </div>
-        ))
        
+        ))}
+        </>
     )
 }
 

@@ -7,14 +7,14 @@ import { useProductApi } from './hooks/useProductApi';
 
 const ScreenOnlyProduct = () =>{
     const { id }  = useParams();
-    const { result , categories } = useProductApi(id);
+    const { result , categories, loading } = useProductApi(id);
 
     console.log(result, "y" , categories , "y", {id})
 
     return (
         <>
         <Breadcrumb categories={categories}/>
-        <OnlyProduct id={id} result={result} />
+        <OnlyProduct id={id} result={result} loading={loading} />
         </>
     )
 }

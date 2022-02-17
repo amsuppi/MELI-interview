@@ -3,6 +3,7 @@ import { useState ,useEffect} from "react"
 export const useFetchApi = (apiString) => {
     const [result, setResult] = useState([]);
     const [categories, setCategories] = useState([]);
+    const [loading, setLoading] = useState(true)
 
     console.log(apiString)
 
@@ -12,13 +13,18 @@ export const useFetchApi = (apiString) => {
             .then(res => res.json())
             .then(result => {
                 console.log("info necesaria",result)
-                setResult(result.items)
-                setCategories(result.categorys)
+                setTimeout(() => {
+                    setResult(result.items)
+                    setCategories(result.categorys)
+                    setLoading(false)
+                }, 1500);
+            }).catch((e)=>{
+                console.error(e)
             })
         }
         getInfo()
 
     }, [apiString])
 
-    return { result , categories }
+    return { result , categories , loading }
 }
