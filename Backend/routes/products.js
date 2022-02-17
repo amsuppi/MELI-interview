@@ -1,5 +1,4 @@
 const router = require('express').Router(); 
-const jsonProductos = require("../models/productos")
 const {modelProductList, modelOnlyProduct, modelDescription} = require('../models/products')
 const {getSearchProducts, getOnlyProduct, getDesriptionProduct, getCategories} = require('./fetchApi')
 
