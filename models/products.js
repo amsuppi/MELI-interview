@@ -1,12 +1,17 @@
-function modelProductList(list) {
+function modelProductList(list, result) {
     let productsList = {};
 
     productsList.author = {}
     productsList.author.name = 'Maribel';
     productsList.author.lastname = 'Suppi';
+
+    productsList.categorys = result.path_from_root
+
+    // result.path_from_root.map((resul)=>{
+    //     productsList.categorie = resul
+    // })
   
     productsList.items = [];
-  
     list.results.map((product) => {
       let item = {};
       item.id = product.id;
@@ -27,11 +32,13 @@ function modelProductList(list) {
     return productsList;
   }
   
-  function modelOnlyProduct(prod) {
+  function modelOnlyProduct(prod, result) {
     let newProd = {};
     newProd.author = {}
     newProd.author.name = 'Maribel';
     newProd.author.lastname = 'Suppi';
+
+    newProd.categorys = result.path_from_root
   
     newProd.item = {};
     newProd.id = prod.id;
@@ -57,7 +64,7 @@ function modelDescription (result){
 
     newDecription.descriprion = result.plain_text;
 
-    return newDecription
+    return newDecription;
 }
 
 
