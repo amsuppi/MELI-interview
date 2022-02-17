@@ -14,6 +14,8 @@ const OnlyProduct = ({result, id})=>{
             .then(result =>{
                 console.log(result.descriprion)
                 setDescription(result.descriprion)
+            }).catch((e)=>{
+                console.log(e)
             })
         }
         getInfo()

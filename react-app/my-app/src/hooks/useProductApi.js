@@ -12,6 +12,8 @@ export const useProductApi = (id) => {
                 setResult(data)
                 setCategories(data.categorys)
                 console.log(data)
+            }).catch((e) =>{
+                console.log(e)
             })
         }
         getInfo()
